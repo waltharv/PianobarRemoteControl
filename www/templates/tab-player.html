@@ -1,0 +1,57 @@
+<ion-view view-title="Pianobar Remote">
+	<ion-content>
+	<div class="button-bar">
+		<button class="button button-stable" ng-click="sendCommand('-')">
+			<i class="ion-thumbsdown"></i>
+		</button>
+		
+		<button class="button button-stable" ng-click="sendCommand('+')" >
+			<i class="ion-thumbsup liked liked liked liked" ng-if="songinfo.rating === '1'"></i>
+			<i class="ion-thumbsup" ng-if="songinfo.rating !== '1'"></i>
+			
+		</button>
+		
+		<button class="button button-stable" ng-click="sendCommand('p')">
+			<i class="ion-play"></i>&nbsp;<i class="ion-pause"></i>
+		</button>
+		
+		<button class="button button-stable" ng-click="sendCommand('n')">
+			<i class="ion-skip-forward"></i>
+		</button>
+		
+		<button class="button button-stable" ng-click="sendCommand(')')">
+			<i class="ion-volume-high"></i>
+		</button>
+		
+		<!-- <button class="button button-stableion-volume-medium" ng-click="sendCommand('^')">
+			
+		</button> -->
+		
+		<button class="button button-stable" ng-click="sendCommand('(')">
+			<i class=" ion-volume-low"></i>
+		</button>
+		
+		<!-- <button class="button button-stable" ng-click="sendCommand('q')">
+			<i class=" ion-close"></i>
+		</button> -->
+	</div>
+		
+		<div class="row">
+			<div class="col col-80.col-offset-20">
+			<img src="{{getCoverArt();}}" alt="cover art" height="" width="100%">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col" style="text-align:left;">
+				<strong>{{getTitle();}}</strong>
+				
+				<br>by <strong>{{getArtist();}}</strong>
+			<!-- 	<br>
+				on {{getAlbum();}}
+			 -->	
+			</div>
+		</div>
+		
+	</ion-content>
+</ion-view>

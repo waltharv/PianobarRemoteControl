@@ -1,0 +1,45 @@
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+
+$textcolor:		white;
+$liked:			#ff9d02;
+
+//465c7d
+//2d4762
+//c4cedc
+//5d6f8a
+//d9e0ea
+//101533
+
+.tab-nav{
+	background-color:#465c7d;
+}
+.tabs-striped .tabs{
+	background-color:#465c7d;
+}
+.icon{
+	color:$textcolor;
+}
+.tab-title{
+	color:$textcolor;
+}
+.scroll-content{
+	color:$textcolor;
+	background-color:#2d4762;
+}
+.button.button-stable{
+	background-color:#c4cedc;
+}
+.bar.bar-stable{
+	background-color:#465c7d;
+}
+.bar.bar-stable .title{
+	color:$textcolor;
+}
+.liked{
+	color:$liked;
+}

@@ -1,0 +1,12 @@
+{
+  "name": "PianobarRemoteControl",
+  "app_id": "a537430d",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

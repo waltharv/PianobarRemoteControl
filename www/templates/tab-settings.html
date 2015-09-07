@@ -1,0 +1,16 @@
+<ion-view view-title="Settings" >
+	<ion-content>
+		<form name="settingsForm">
+			<label class="item item-input">
+				<span class="input-label">Server IP address</span>
+				<input type="text" name="ipaddress" ng-model="settings.ipaddress" ng-change="save('ipaddress')">
+			</label>
+		
+			<label class="item item-input">
+				<span class="input-label">Port #</span>
+				<input type="number" ng-model="settings.portnumber" ng-change="save('portnumber')">
+			</label>
+		</form>
+		
+	</ion-content>
+</ion-view>
