@@ -81,7 +81,7 @@ load_config(){
         then
                 source <(sed -n \
                         -e 's/password.*//' \
-                        -e 's/user/pianobar_user/' \
+                        -e 's/^user/pianobar_user/' \
                         -e 's/\([0-9A-Za-z_]*\) = \(.*\)/\U\1\E="\2"/p' < $CONFIG)
         else
                 echo "Couldn't load config file $CONFIG, using defaults"
