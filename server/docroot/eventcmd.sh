@@ -1,5 +1,5 @@
 #!/bin/bash
-docroot="/home/user/Dropbox/whinc/code/PianobarRemoteControl/server/docroot"
+docroot="/path/to/server/docroot"
 action="$1"
 
 cat /dev/stdin >| "$docroot"/songinfo
