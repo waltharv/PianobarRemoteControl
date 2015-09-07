@@ -20,7 +20,7 @@ function sendCommand($keypress){
 	$unencoded = [];
 	$unencoded['keypress'] = $keypress;
 	
-	$controlHandle = fopen('/tmp/pianobar', 'w', 1);
+	$controlHandle = fopen('./keypresses', 'w', 1);
 	if($controlHandle){
 		$numBytes = fwrite($controlHandle, $keypress);
 		if($numBytes === 1){
