@@ -7711,3 +7711,6 @@ a.button {
 
 .liked {
   color: #ff9d02; }
+
+.bar-stable .button.button-clear {
+  color: white; }

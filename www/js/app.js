@@ -1,5 +1,5 @@
 
-angular.module('pianobarApp', ['ionic', 'ionic.utils', 'pianobarApp.controllers', 'pianobarApp.services'])
+angular.module('pianobarApp', ['ionic', 'ionic.utils', 'pianobarApp.controllers', 'pianobarApp.services', 'stationlist'])
 
 .run(function($ionicPlatform) {
 	$ionicPlatform.ready(function() {
@@ -21,25 +21,35 @@ angular.module('pianobarApp', ['ionic', 'ionic.utils', 'pianobarApp.controllers'
 	$stateProvider
 
 	// setup an abstract state for the tabs directive
-		.state('tab', {
-		url: '/tab',
+		.state('app', {
+		url: '/app',
 		abstract: true,
-		templateUrl: 'templates/tabs.html'
+		templateUrl: 'templates/menu.html',
+		controller: 'AppCtrl'
 	})
 	// Each tab has its own nav history stack:
-	.state('tab.player', {
+	.state('app.player', {
 		url: '/player',
 		views: {
-			'tab-player': {
+			'menuContent': {
 				templateUrl: 'templates/tab-player.html',
 				controller: 'PlayerCtrl'
 			}
 		}
 	})
-	.state('tab.settings', {
+	.state('app.stations', {
+		url: '/stations',
+		views: {
+			'menuContent': {
+				templateUrl: 'templates/tab-stations.html',
+				controller: 'StationsCtrl'
+			}
+		}
+	})
+	.state('app.settings', {
 		url: '/settings',
 		views: {
-			'tab-settings': {
+			'menuContent': {
 				templateUrl: 'templates/tab-settings.html',
 				controller: 'SettingsCtrl'
 			}
@@ -47,7 +57,7 @@ angular.module('pianobarApp', ['ionic', 'ionic.utils', 'pianobarApp.controllers'
 	});
 
 	// if none of the above states are matched, use this as the fallback
-	$urlRouterProvider.otherwise('/tab/player');
+	$urlRouterProvider.otherwise('/app/player');
 
 });
 

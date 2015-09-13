@@ -35,10 +35,13 @@
 			<i class=" ion-close"></i>
 		</button> -->
 	</div>
+		<div class="range">
+			<input type="range" name="volume" min="0" max="{{songinfo.totalDuration}}" ng-model="songinfo.remainingDuration">
+		</div>
 		
 		<div class="row">
 			<div class="col col-80.col-offset-20">
-			<img src="{{getCoverArt();}}" alt="cover art" height="" width="100%">
+			<img ng-src="{{getCoverArt();}}" alt="cover art" height="" width="100%">
 			</div>
 		</div>
 		

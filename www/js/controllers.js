@@ -3,6 +3,10 @@ angular.module('pianobarApp.controllers', [])
 /* .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
 	$scope.chat = Chats.get($stateParams.chatId);
 }) */
+.controller('AppCtrl', function($scope) {
+	
+})
+
 
 .controller('SettingsCtrl', function($scope, $localstorage) {
 	$scope.settings = {
@@ -17,8 +21,32 @@ angular.module('pianobarApp.controllers', [])
 	
 })
 
+.controller('StationsCtrl', function($scope, $stationlist, $http, $location, $localstorage) {
+	$scope.ipaddress = $localstorage.get('ipaddress', '192.168.999.999');
+	$scope.portnumber = $localstorage.get('portnumber', '99999');
+	
+	$scope.getCount = function(){
+		return $stationlist.count;
+	};
+	
+	$scope.stations = $stationlist.stations;
+	
+	$scope.selectStation = function(num){
+		var url ='http://'+$scope.ipaddress+':'+$scope.portnumber+'/station/' + num;
+		
+		$http.get(url)
+			.then(function(response){
+				$location.path('/app/player');
+			}, function(response){
+				//some network error here
+			});
+		
+		
+	};
+	
+})
 
-.controller('PlayerCtrl', function($scope, $localstorage, $http, $location) {
+.controller('PlayerCtrl', function($scope, $localstorage, $http, $stationlist) {
 	$scope.songinfo = {
 		artist: "",
 		title: "",
@@ -48,7 +76,9 @@ angular.module('pianobarApp.controllers', [])
 		station10: "",
 		station11: "",
 		station12: "",
-		action: ""
+		action: "",
+		remainingDuration: "",
+		totalDuration: ""
 	};
 	
 	$scope.ipaddress = $localstorage.get('ipaddress', '192.168.999.999');
@@ -60,9 +90,16 @@ angular.module('pianobarApp.controllers', [])
 		$http.get(infourl)
 			.then(function(infoResponse){
 				$scope.songinfo = infoResponse.data;
+				$stationlist.count = $scope.songinfo.stationCount;
+				
+				$stationlist.stations.length = 0;
+				for (i = 0; i < $stationlist.count; i++) {
+					$stationlist.stations.push($scope.songinfo['station' + i]);
+				}
 				console.log('song info reloaded');
+				
 			}, function(infoError){
-				//show some error
+				//show some network error
 			});
 	};
 	
@@ -90,6 +127,7 @@ angular.module('pianobarApp.controllers', [])
 			console.log('http failed');
 		});
 	};
+	
 	setInterval(function(){getSongInfo();}, 10 * 1000);
 	
 	$scope.getCoverArt = function(){

@@ -17,3 +17,13 @@ angular.module('ionic.utils', [])
 		}
 	}
 }]);
+
+angular.module('stationlist', [])
+.factory('$stationlist', function() {
+	return {
+		count:0,
+		stations:[]
+	}
+		
+		
+});
