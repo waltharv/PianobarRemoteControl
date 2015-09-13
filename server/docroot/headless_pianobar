@@ -68,7 +68,7 @@ ACT_SONGPAUSETOGGLE=p
 ACT_SONGPAUSETOGGLE2=' ' # space
 XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 FIFO=$XDG_CONFIG_HOME/pianobar/ctl
-OUT=/home/user/Dropbox/whinc/code/PianobarRemoteControl/server/docroot/out
+OUT=/path/to/server/docroot/out
 #OUT=$XDG_CONFIG_HOME/pianobar/out
 CONFIG=$XDG_CONFIG_HOME/pianobar/config
 
